@@ -54,9 +54,17 @@
   </div>
 
   <script>
-    // 👉 CHANGE THESE TWO VALUES
-    const IG_USERNAME = "17843521113492772";
+    // Desktop DM ID (your original)
+    const IG_DM_ID = "17843521113492772";
+
+    // Mobile username
+    const IG_USERNAME = "offsidejerseyss";
+
     const MESSAGE = "Hello! I am your Secret Santa 🎅👀. Just sending you something important…";
+
+    function isMobile() {
+      return /android|iphone|ipad|ipod/i.test(navigator.userAgent);
+    }
 
     function copyAndOpen() {
       const status = document.getElementById("status");
@@ -70,8 +78,19 @@
           status.textContent = "Could not copy automatically — copy manually if needed.";
         });
 
-      // 2) Open Instagram DM
-      window.location.href = `https://www.instagram.com/direct/t/${IG_USERNAME}`;
+      // 2) Select link based on device
+      let link;
+
+      if (isMobile()) {
+        // MOBILE → open DM chat via username
+        link = `https://ig.me/m/${IG_USERNAME}`;
+      } else {
+        // DESKTOP → use numeric DM ID
+        link = `https://www.instagram.com/direct/t/${IG_DM_ID}`;
+      }
+
+      // 3) Open link
+      window.location.href = link;
     }
   </script>
 
