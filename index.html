@@ -36,6 +36,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="box">
     <h2>🎅 Hello Secret Santa!</h2>
@@ -46,15 +47,20 @@
       ✅ Open Instagram DM<br><br>
       Just <b>paste</b> and hit send. That’s all you need to do! 🎁
     </p>
+
     <p id="status" style="font-size: 14px; opacity: 0.7;"></p>
+
     <button onclick="copyAndOpen()">Click Here 🎄</button>
   </div>
+
   <script>
     // Desktop DM ID (your original)
     const IG_DM_ID = "17843521113492772";
+
     // Mobile username
     const IG_USERNAME = "offsidejerseyss";
-    const MESSAGE = "Hey I want to order 2 Retro Jerseys - - Barcelona 08/09 Home - SIZE - PRINT - MESSI 10 - Argentina 2006 WC Home - SIZE - PRINT - MESSI 19";
+
+    const MESSAGE = "Hello";
 
     function isMobile() {
       return /android|iphone|ipad|ipod/i.test(navigator.userAgent);
@@ -62,6 +68,7 @@
 
     function copyAndOpen() {
       const status = document.getElementById("status");
+
       // 1) Copy text
       navigator.clipboard.writeText(MESSAGE)
         .then(() => {
@@ -73,17 +80,22 @@
 
       // 2) Select link based on device
       let link;
+
       if (isMobile()) {
         // MOBILE → open DM chat via username
-        link = `https:                          
+        link = `https://ig.me/m/${IG_USERNAME}`;
       } else {
-                                        
-        link = `https://www.instagram.com/direct/t/${IG_DM_ID}`;
+        // DESKTOP → use numeric DM ID
+        link = `https://ig.me/m/${IG_USERNAME}`;
       }
 
       // 3) Open link
       window.location.href = link;
     }
   </script>
+
 </body>
 </html>
+
+
+correct this code. And give me the full code.
